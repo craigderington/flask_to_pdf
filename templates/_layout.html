@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Flask 2 PDF</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Flask2PDF Example Site">
+    <meta name="author" content="Craig Derington">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/bootstrap.min.css')}}" type="text/css" media="screen">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/print.css')}}" type="text/css" media="print">
+    <link rel="stylesheet" href="https://s3.amazonaws.com/flatly-bootswatch/css/flatly.custom.min.css" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/bootswatch.css')}}" type="text/css">
+</head>
+
+<body class="preview" id="top" data-spy="scroll">
+
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="/">Flask2PDF</a>
+            <div class="nav-collapse collapse" id="main-menu">
+                <ul class="nav" id="main-menu-left">
+                    <li>News</li>
+                    <li>Gallery</li>
+                </ul>
+                <ul class="nav pull-right" id="main-menu-right">
+                    <li><a rel="tooltip" target="_blank" href="http://builtwithbootstrap.com/"
+                           title="Showcase of Bootstrap sites &amp; apps">Built With
+                        Bootstrap</a>
+                    </li>
+                    <li><a rel="tooltip" target="_blank" href="https://wrapbootstrap.com/?ref=bsw"
+                           title="Marketplace for premium Bootstrap templates">WrapBootstrap
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }} alert-dismissible" role="alert" style="margin-top: -40px;">
+            <div class="container">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <p><i class="fa fa-warning"></i> {{ message }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+<div class="container">
+    <header class="jumbotron subhead" id="overview">
+        <div class="row">
+            <div class="span6">
+                <h1>Flask2PDF</h1>
+                <p class="lead">Render PDF's within the Flask framework.</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-header">
+        {% block content %}{% endblock %}
+    </div>
+
+</div>
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.smooth-scroll.min.js')}}"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='assets/js/bootswatch.js')}}"></script>
+
+</body>
+</html>
