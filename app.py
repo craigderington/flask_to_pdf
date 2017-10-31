@@ -30,8 +30,8 @@ def index():
 @app.route('/invoice/<int:invoice_id>', methods=['GET'])
 def view_invoice(invoice_id):
     invoice_id = invoice_id
-    subject = "Bellcurve Report PDF"
-    receiver = "craig@craigderington.me"
+    subject = "Report PDF"
+    receiver = "recipient@emailaddress.org"
     msg = Message(subject=subject, recipients=[receiver])
     msg.body = "This email contains a PDF."
     pdf = create_pdf(render_template('invoice.html', invoice_id=invoice_id))
