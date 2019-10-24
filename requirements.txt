@@ -24,5 +24,5 @@ virtualenv==15.1.0
 virtualenv-clone==0.2.6
 virtualenvwrapper==4.7.2
 webencodings==0.5.1
-Werkzeug==0.12.2
+Werkzeug==0.15.3
 xhtml2pdf==0.2b1
