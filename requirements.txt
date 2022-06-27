@@ -15,7 +15,7 @@ pbr==2.1.0
 pdfkit==0.6.1
 Pillow==6.2.0
 PyPDF2==1.26.0
-reportlab==3.4.0
+reportlab==3.5.55
 requests==2.18.4
 six==1.10.0
 stevedore==1.21.0
